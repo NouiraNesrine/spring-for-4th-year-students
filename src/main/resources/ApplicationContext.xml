@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="product1" class="org.intellij.myspring.core.Product">
+
+        <constructor-arg name="productId" value="A-11"/>
+        <constructor-arg name="productName" value="Laptop"/>
+        <constructor-arg name="productDescription" value="Some laptop"/>
+    </bean>
+
+    <bean id="product2" class="org.intellij.myspring.core.Product">
+
+        <constructor-arg name="productId" value="A-12"/>
+        <constructor-arg name="productName" value="Laptop 2"/>
+        <constructor-arg name="productDescription" value="Some laptop 2"/>
+    </bean>
+
+    <bean id="artist" class="org.intellij.myspring.core.javaconfig.Artist">
+        <property name="name" value="NouNou"/>
+        <property name="lastName" value="Sousou"/>
+    </bean>
+
+    <bean id="adress" class="org.intellij.myspring.core.javaconfig.constructor.Adress">
+        <constructor-arg index="0" value="my street 2"/>
+        <constructor-arg index="1" value="my city 2"/>
+    </bean>
+    <bean id="init-dep" class="org.intellij.myspring.core.javaconfig.constructor.PersonDep"></bean>
+</beans>

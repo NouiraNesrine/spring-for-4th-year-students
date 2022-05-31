@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <import resource="ApplicationContext.xml"/>-->
+    <bean id="person"  parent="details" depends-on="init-dep" class="org.intellij.myspring.core.javaconfig.constructor.Person">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="jhon"/>
+        <constructor-arg index="2" value="doe"/>
+        <constructor-arg index="3">
+            <bean id="adress" class="org.intellij.myspring.core.javaconfig.constructor.Adress">
+                <constructor-arg index="0" value="my street 2"/>
+                <constructor-arg index="1" value="my city 2"/>
+            </bean>
+        </constructor-arg>
+        <property name="stringList">
+           <list>
+               <value>string 1</value>
+               <value>string 2</value>
+           </list>
+        </property>
+        <property name="stringSet">
+            <list>
+                <value>set 1</value>
+                <value>set 2</value>
+            </list>
+        </property>
+        <property name="stringMap">
+            <map>
+                <entry key="name1" value="value1"/>
+                <entry key="name2" value="value2"/>
+            </map>
+        </property>
+        <property name="adresdes">
+            <list>
+                <ref bean="adress"/>
+                <bean id="adress21" class="org.intellij.myspring.core.javaconfig.constructor.Adress">
+                    <constructor-arg index="0" value=" NY"/>
+                    <constructor-arg index="1" value="Tuns"/>
+                </bean>
+            </list>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="username">my user</prop>
+                <prop key="password">password</prop>
+            </props>
+        </property>
+        <property name="details">
+            <props merge="true">
+                <prop key="email2">nn@gmail.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="details" abstract="true" class="org.intellij.myspring.core.javaconfig.constructor.Details">
+        <property name="details">
+            <props>
+                <prop key="email1">nesrine.nouira@esprit.tn</prop>
+            </props>
+        </property>
+    </bean>
+
+
+</beans>
